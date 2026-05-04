@@ -1,0 +1,10 @@
+Options -Multiviews
+
+RewriteEngine On
+
+# Abaikan jika file atau folder fisik ada
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Alihkan semuanya ke index.php
+RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]

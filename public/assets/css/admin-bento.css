@@ -1,0 +1,64 @@
+/* public/assets/css/admin-bento.css */
+:root {
+    --bg-light: #f4f7f6;
+    --card-bg: #ffffff;
+    --primary-color: #4a90e2;
+    --text-main: #333333;
+    --text-muted: #777777;
+    --border-radius: 16px;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+body {
+    background-color: var(--bg-light);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    margin: 0;
+    padding: 20px;
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(150px, auto);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bento-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.bento-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Card sizing */
+.card-large { grid-column: span 2; grid-row: span 2; }
+.card-wide { grid-column: span 2; }
+.card-tall { grid-row: span 2; }
+
+.card-header {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.stat-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
