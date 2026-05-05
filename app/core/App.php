@@ -1,12 +1,14 @@
 <?php
 // app/core/App.php
 
-class App {
+class App
+{
     protected $controller = 'Home';
     protected $method = 'index';
     protected $params = [];
 
-    public function __construct() {
+    public function __construct()
+    {
         $url = $this->parseURL();
 
         // Controller
@@ -28,13 +30,14 @@ class App {
 
         // Params
         if (!empty($url)) {
-            $this->params = array_values($url);
+            $this->params = array_value($url);
         }
 
         call_user_func_array([$this->controller, $this->method], $this->params);
     }
 
-    public function parseURL() {
+    public function parseURL()
+    {
         if (isset($_GET['url'])) {
             $url = rtrim($_GET['url'], '/');
             $url = filter_var($url, FILTER_SANITIZE_URL);
@@ -44,7 +47,8 @@ class App {
             // Support untuk PHP Built-in Server
             $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
             $url = trim($url, '/');
-            if ($url == '') return null;
+            if ($url == '')
+                return null;
             $url = explode('/', $url);
             return $url;
         }
