@@ -68,4 +68,14 @@ class Produk_model {
         $this->db->execute();
         return $this->db->rowCount();
     }
+
+    public function cariDataProduk() {
+        $keyword = $_POST['keyword'];
+        $query = "SELECT p.*, k.nama_kategori FROM produk p 
+                  JOIN kategori k ON p.id_kategori = k.id 
+                  WHERE p.nama_produk LIKE :keyword OR k.nama_kategori LIKE :keyword";
+        $this->db->query($query);
+        $this->db->bind('keyword', "%$keyword%");
+        return $this->db->resultSet();
+    }
 }

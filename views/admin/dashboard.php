@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="<?= BASEURL; ?>/assets/css/admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         .analytics-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-top: 30px; }
         .chart-placeholder {
@@ -187,5 +188,6 @@
         </section>
     </main>
 
+    <?php Flasher::flash(); ?>
 </body>
 </html>

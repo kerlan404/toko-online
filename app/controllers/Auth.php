@@ -65,6 +65,8 @@ class Auth extends Controller {
     public function logout() {
         unset($_SESSION['user']);
         session_destroy();
+        session_start();
+        Flasher::setFlash('Berhasil Logout', 'dari sistem', 'success');
         header('Location: ' . BASEURL . '/Auth');
         exit;
     }

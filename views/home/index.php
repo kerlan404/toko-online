@@ -1,29 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TokoOnline - Premium Minimalist Store</title>
-    <link rel="stylesheet" href="<?= BASEURL; ?>/assets/css/user-home.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/628123456789" class="whatsapp-btn" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <nav class="navbar">
-        <div class="logo">Toko<span>Online</span>.</div>
-        <div class="nav-links">
-            <a href="<?= BASEURL; ?>/Home">Home</a>
-            <a href="#collection-gallery">Collection</a>
-            <a href="#new-arrival">New Arrival</a>
-            <a href="#faq">FAQ</a>
-            <a href="<?= BASEURL; ?>/Auth/logout" style="color: #e74c3c;">Logout</a>
-        </div>
-    </nav>
+<?php $this->view('templates/header', $data); ?>
 
     <section class="hero">
         <div class="hero-content">
@@ -159,82 +134,19 @@
         </section>
     </div>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <div class="logo" style="color: #fff; margin-bottom: 25px;">Toko<span>Online</span>.</div>
-                <p>Butik fashion premium yang menghadirkan koleksi pakaian dan aksesoris kurasi terbaik untuk gaya hidup modern Anda.</p>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-tiktok"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h3>Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="<?= BASEURL; ?>/Home">Beranda</a></li>
-                    <li><a href="#collection-gallery">Lookbook</a></li>
-                    <li><a href="#new-arrival">New Arrival</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3>Support</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Bantuan Pelanggan</a></li>
-                    <li><a href="#">Lacak Pesanan</a></li>
-                    <li><a href="#">Kebijakan Privasi</a></li>
-                    <li><a href="#">Syarat & Ketentuan</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3>Newsletter</h3>
-                <p>Dapatkan update koleksi terbaru dan promo eksklusif langsung di email Anda.</p>
-                <input type="email" placeholder="Alamat Email Anda" class="newsletter-input">
-                <button style="background: var(--accent); color: #fff; border: none; padding: 12px 25px; border-radius: 10px; width: 100%; cursor: pointer; font-weight: 600;">Subscribe</button>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 TokoOnline Premium. Semua Hak Dilindungi.</p>
-            <div class="payment-methods" style="display: flex; gap: 15px; font-size: 1.5rem; color: #333;">
-                <i class="fab fa-cc-visa"></i>
-                <i class="fab fa-cc-mastercard"></i>
-                <i class="fab fa-cc-paypal"></i>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // FAQ Accordion Logic
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                const faqItem = button.parentElement;
-                faqItem.classList.toggle('active');
-                
-                // Toggle icon
-                const icon = button.querySelector('i');
-                icon.classList.toggle('fa-chevron-down');
-                icon.classList.toggle('fa-chevron-up');
-            });
+<script>
+    // FAQ Accordion Logic
+    document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+            const faqItem = button.parentElement;
+            faqItem.classList.toggle('active');
+            
+            // Toggle icon
+            const icon = button.querySelector('i');
+            icon.classList.toggle('fa-chevron-down');
+            icon.classList.toggle('fa-chevron-up');
         });
+    });
+</script>
 
-        // Scroll Reveal Logic
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        reveal(); // Initial check
-    </script>
-
-</body>
-</html>
+<?php $this->view('templates/footer', $data); ?>

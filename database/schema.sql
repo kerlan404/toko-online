@@ -83,9 +83,10 @@ CREATE TABLE keranjang (
 CREATE TABLE admin (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(150) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     nama_lengkap VARCHAR(100),
-    last_login DATETIME
+    last_login DATETIME DEFAULT NULL
 ) ENGINE=InnoDB;
 
 -- 9. Log Transaksi
